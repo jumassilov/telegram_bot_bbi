@@ -174,4 +174,6 @@ bot.onText(/\/search/, function (msg, match) {
 })
 
 
-app.listen(8080)
+let port = process.env.PORT === undefined? 3030 : process.env.PORT;
+
+app.lsten(port);
