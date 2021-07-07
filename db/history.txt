@@ -1,0 +1,1 @@
+[{"chatId":865654174,"weatherSearch":"Погода в городе Almaty 23C"},{"chatId":865654174,"weatherSearch":"Погода в городе Almaty 23C"},{"chatId":865654174,"weatherSearch":"Погода в городе Astana 15C"},{"chatId":865654174,"weatherSearch":"Погода в городе Moscow 33C"},{"chatId":956068208,"weatherSearch":"Погода в городе Almaty 34C"}]
