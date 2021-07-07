@@ -159,7 +159,7 @@ bot.onText(/\/search/, function (msg, match) {
     let options = {
         method: 'GET',
         url: 'https://genius.p.rapidapi.com/search',
-        params: { q: `${artistName}` },
+        params: { q: artistName },
         headers: {
             'x-rapidapi-key': '999b8ecad6msh574a4ba6e27ee35p1fea3djsn5240d8868fa9',
             'x-rapidapi-host': 'genius.p.rapidapi.com'
@@ -167,7 +167,11 @@ bot.onText(/\/search/, function (msg, match) {
     };
 
     axios.request(options).then(function (response) {
-        bot.sendMessage(msg.chat.id, JSON.stringify(response.data.hits));
+        for(let i = 0; i < response['data']['response']['hits'].length; i++){
+            bot.sendMessage(msg.chat.id, 'Title:' +  response['data']['response']['hits'][i]['result']['full_title']+ '\n' + 'Artist: ' + ' ' + response['data']['response']['hits'][i]['result']['primary_artist']['name'] + '\n' +
+            'Image_Url ' + response['data']['response']['hits'][i]['result']['song_art_image_thumbnail_url'] + '\n' + 
+            'Page Views: ' + ' ' + response['data']['response']['hits'][i]['result']['stats']['pageviews'] + '\n');
+        }
     }).catch(function (error) {
         bot.sendMessage(error);
     });
